@@ -172,6 +172,10 @@ ul.list li::before {
     background-image: url("../images/news-bg.jpg");
 }
 
+.footer {
+    background-image: url("../images/footer-bg.jpg");
+}
+
 .form-control.is-invalid {
     border-color: #dc3545;
 }
