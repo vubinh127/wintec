@@ -58,7 +58,7 @@ function loadStyle()
     wp_enqueue_style('bootraps-font-min-css', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
     wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css');
 
-    wp_enqueue_script('tailwind', 'https://cdn.tailwindcss.com', [], time(), false);
+    wp_enqueue_script('tailwind', get_stylesheet_directory_uri() . '/assets/js/tailwind.js', [], time(), false);
 
     wp_enqueue_style('aos-min-css', get_stylesheet_directory_uri() . '/assets/css/aos.min.css');
     wp_enqueue_style('custom-fonts-css', get_stylesheet_directory_uri() . '/assets/css/custom-fonts.css');

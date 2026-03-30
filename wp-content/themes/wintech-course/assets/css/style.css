@@ -57,6 +57,10 @@ body {
     transform: translateY(-100%);
 }
 
+.header ul li a {
+    font-family: "Lexend", sans-serif;
+}
+
 .gradient-text {
     background-image: linear-gradient(90deg,
             rgb(243, 223, 88),
@@ -195,12 +199,13 @@ ul.list li::before {
 .max-w-6xl {
     max-width: 1200px;
 }
-
-.main-nav {
+/* Container nav */
+.main-menu {
     display: none;
 }
 
-.main-nav__menu {
+/* Ul menu */
+.main-menu .menu {
     display: flex;
     align-items: center;
     width: 100%;
@@ -212,27 +217,32 @@ ul.list li::before {
     text-align: center;
 }
 
-.main-nav__item {
+/* Các item */
+.main-menu .menu > .menu-item {
     position: relative;
     width: 25%;
 }
 
-.main-nav__link {
+/* Link */
+.main-menu .menu-item > a {
     display: block;
     color: #ffffff;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.main-nav__link:hover {
+.main-menu .menu-item > a:hover {
     color: #ffc200;
 }
 
-.main-nav__item--current>.main-nav__link {
+/* Item active/current */
+.main-menu .menu-item-current > a,
+.main-menu .current-menu-item > a {
     color: #ffc200;
 }
 
-.main-nav__submenu {
+/* Submenu (nếu WordPress tạo ra) */
+.main-menu .sub-menu {
     display: none;
     position: absolute;
     top: 100%;
@@ -248,48 +258,50 @@ ul.list li::before {
     z-index: 100;
 }
 
-.main-nav__item--has-children:hover>.main-nav__submenu {
+.main-menu .menu-item-has-children:hover > .sub-menu {
     display: block;
 }
 
-.main-nav__submenu .main-nav__item {
+.main-menu .sub-menu .menu-item {
     width: 100%;
 }
 
-.main-nav__submenu .main-nav__link {
+.main-menu .sub-menu .menu-item > a {
     padding: 10px 16px;
     white-space: nowrap;
     text-align: left;
 }
 
+/* Desktop */
 @media (min-width: 1024px) {
-    .main-nav {
+    .main-menu {
         display: flex;
         flex: 1;
         align-items: center;
     }
 }
 
-#mobile-menu .main-nav {
+/* Mobile menu override */
+#mobile-menu .main-menu {
     display: block !important;
 }
 
-#mobile-menu .main-nav__menu {
+#mobile-menu .main-menu .menu {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
 }
 
-#mobile-menu .main-nav__item {
+#mobile-menu .main-menu .menu-item {
     width: 100%;
 }
 
-#mobile-menu .main-nav__link {
+#mobile-menu .main-menu .menu-item > a {
     padding: 8px 0;
     font-size: 1rem;
 }
 
-#mobile-menu .main-nav__submenu {
+#mobile-menu .main-menu .sub-menu {
     display: block;
     position: static;
     transform: none;
@@ -299,14 +311,14 @@ ul.list li::before {
     min-width: unset;
 }
 
-#mobile-menu .main-nav__submenu .main-nav__link {
+#mobile-menu .main-menu .sub-menu .menu-item > a {
     padding: 6px 0;
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.75);
 }
 
 @media (min-width: 1280px) {
-    .header.sticky-header+.header-pad {
+    .header.sticky-header + .header-pad {
         padding-top: 71px;
     }
 
@@ -314,7 +326,6 @@ ul.list li::before {
         position: absolute;
     }
 }
-
 
 /* modal login */
 
@@ -684,6 +695,7 @@ ul.list li::before {
 
 .auth-section {
     min-height: calc(100vh - 62px - 160px);
+    font-family: "Inter", sans-serif;
 }
 
 .form-control {
@@ -1067,10 +1079,6 @@ ul.list li::before {
 
 .locked-hint a:hover {
     text-decoration: underline;
-}
-
-.hidden {
-    display: none !important;
 }
 
 .lesson-entry-content {
