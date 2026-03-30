@@ -106,9 +106,9 @@ function loadStyle()
 }
 add_action('wp_enqueue_scripts', 'loadStyle');
 
-function create_post_type_courses()
+function create_post_type_khoa_hoc()
 {
-    register_post_type('courses', [
+    register_post_type('khoa_hoc', [
         'labels' => [
             'name' => 'Courses',
             'singular_name' => 'Course',
@@ -124,24 +124,22 @@ function create_post_type_courses()
         'public' => true,
         'has_archive' => true,
         'rewrite' => [
-            'slug' => 'courses',
+            'slug' => 'khoa-hoc',
         ],
         'menu_icon' => 'dashicons-welcome-learn-more',
         'supports' => [
             'title',
             'editor',
             'thumbnail',
-            'excerpt',
-            'custom-fields',
         ],
         'show_in_rest' => true, // dùng Gutenberg + API
     ]);
 }
-add_action('init', 'create_post_type_courses');
+add_action('init', 'create_post_type_khoa_hoc');
 
-function create_course_taxonomy()
+function create_khoa_hoc_taxonomy()
 {
-    register_taxonomy('course_category', 'courses', [
+    register_taxonomy('course_category', 'khoa_hoc', [
         'labels' => [
             'name' => 'Course Categories',
             'singular_name' => 'Course Category',
@@ -153,4 +151,83 @@ function create_course_taxonomy()
         'show_in_rest' => true,
     ]);
 }
-add_action('init', 'create_course_taxonomy');
+add_action('init', 'create_khoa_hoc_taxonomy');
+
+function add_custom_roles() {
+    add_role('hoc_vien', 'Học Viên', [
+        'read' => true,
+        'access_courses' => true,
+    ]);
+    // Học viên VIP
+    add_role('hoc_vien_vip', 'Học Viên VIP', [
+        'read'              => true,
+        'access_courses'    => true,
+        'access_vip_lessons'=> true,
+    ]);
+}
+add_action('init', 'add_custom_roles');
+
+// Chặn truy cập trang khóa học nếu không đủ quyền
+// function restrict_course_pages() {
+//     if (is_page('khoa-hoc') || is_singular('lesson')) { // đổi theo slug/CPT của bạn
+
+//         if (!is_user_logged_in()) {
+//             wp_redirect(home_url('/dang-nhap'));
+//             exit;
+//         }
+
+//         $user = wp_get_current_user();
+//         $allowed_roles = ['hoc_vien', 'hoc_vien_vip', 'administrator'];
+
+//         if (empty(array_intersect($allowed_roles, $user->roles))) {
+//             wp_redirect(home_url('/khong-co-quyen'));
+//             exit;
+//         }
+//     }
+// }
+// add_action('template_redirect', 'restrict_course_pages');
+
+function is_hoc_vien() {
+    if (!is_user_logged_in()) return false;
+    $user = wp_get_current_user();
+    return array_intersect(['hoc_vien', 'hoc_vien_vip'], $user->roles);
+}
+
+
+function restrict_course_pages() {
+    if (is_page('khoa-hoc') || is_singular('lesson')) {
+        if (!is_hoc_vien()) {
+            wp_redirect(home_url('/dang-nhap'));
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'restrict_course_pages');
+
+
+// Chặn hoc_vien vào wp-admin
+function block_hoc_vien_from_admin() {
+    if (is_admin() && !defined('DOING_AJAX')) {
+        $user = wp_get_current_user();
+        $blocked = ['hoc_vien', 'hoc_vien_vip'];
+
+        if (!empty(array_intersect($blocked, $user->roles))) {
+            wp_redirect(home_url('/'));
+            exit;
+        }
+    }
+}
+add_action('admin_init', 'block_hoc_vien_from_admin');
+
+// Ẩn luôn thanh admin bar phía trên trang
+function hide_admin_bar_for_hoc_vien() {
+    if (is_user_logged_in()) {
+        $user = wp_get_current_user();
+        $hidden = ['hoc_vien', 'hoc_vien_vip'];
+
+        if (!empty(array_intersect($hidden, $user->roles))) {
+            show_admin_bar(false);
+        }
+    }
+}
+add_action('after_setup_theme', 'hide_admin_bar_for_hoc_vien');
