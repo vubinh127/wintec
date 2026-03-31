@@ -12,7 +12,7 @@
     
     <header class="account-header bg-white border-b border-gray-200 sticky top-0 left-0 w-full z-50">
         <div class="container mx-auto max-w-6xl !px-6 xl:!px-0">
-            <div class="flex items-center justify-between h-[60px]">
+            <div class="flex items-center justify-between h-[75px]">
 
                 <a href="" class="flex items-center gap-2 no-underline">
                     <svg width="22" height="28" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
