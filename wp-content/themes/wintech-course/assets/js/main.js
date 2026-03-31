@@ -161,18 +161,18 @@ jQuery(function ($) {
 
     var $mobileBtn = $('#acc-mobile-menu-btn');
     var $drawer = $('#acc-mobile-drawer');
-    var $overlay = $('#acc-mobile-overlay');
+    var $mobileoverlay = $('#acc-mobile-overlay');
     var $closeBtn = $('#acc-mobile-drawer-close');
 
     function openDrawer() {
         $drawer.removeClass('translate-x-full');
-        $overlay.removeClass('hidden');
+        $mobileoverlay.removeClass('hidden');
         $('body').css('overflow', 'hidden');
     }
 
     function closeDrawer() {
         $drawer.addClass('translate-x-full');
-        $overlay.addClass('hidden');
+        $mobileoverlay.addClass('hidden');
         $('body').css('overflow', '');
     }
 
@@ -184,8 +184,8 @@ jQuery(function ($) {
         $closeBtn.on('click', closeDrawer);
     }
 
-    if ($overlay.length) {
-        $overlay.on('click', closeDrawer);
+    if ($mobileoverlay.length) {
+        $mobileoverlay.on('click', closeDrawer);
     }
 
     var $navToggle = $('#acc-nav-courses-toggle');
