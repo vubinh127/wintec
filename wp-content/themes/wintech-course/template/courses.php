@@ -4,93 +4,106 @@
  */
 get_header('account');
 ?>
-<main class="courses-list-main">
-
-        <!-- Page Hero -->
-        <section class="courses-list-hero">
-            <div class="container mx-auto max-w-6xl !px-4 xl:!px-0">
-                <p class="courses-list-hero__eyebrow" data-x-aos="fade-up">Danh sách</p>
-                <h1 class="courses-list-hero__title" data-x-aos="fade-up" data-aos-delay="80">Khóa Học Của Chúng Tôi</h1>
-                <p class="courses-list-hero__sub" data-x-aos="fade-up" data-aos-delay="160">Chọn lộ trình phù hợp và bắt đầu hành trình làm chủ tài chính cùng chuyên gia Phan Hiếu Kỳ.</p>
-            </div>
-        </section>
-
-        <!-- Course Grid -->
+    <main class="courses-list-main">
         <section class="courses-list-section">
-            <div class="container mx-auto max-w-6xl !px-4 xl:!px-0">
-
-                <div class="course-grid">
-
-                    <article class="course-card" data-x-aos="fade-up">
-                        <div class="course-card__header">
-                            <span class="course-card__title-top">Xử Lý Nợ</span>
+            <div class="banner">
+                <div class="container">
+                    <div class="banner-content">
+                        <div class="text">
+                            <h1>Tất cả khóa học</h1>
+                            <p>Khám phá hàng nghìn khóa học chất lượng cao</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-bar">
+                <div class="container mx-auto max-w-6xl !px-4 xl:!px-0 search-wrap">
+                    <div class="search-input">
+                        <input type="text" placeholder="Tìm kiếm khóa học..." />
+                    </div>
+
+                    <div class="category">
+                        <label>Danh mục:</label>
+                        <select>
+                            <option>Tất cả</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-search">🔍 Tìm kiếm</button>
+                </div>
+            </div>
+
+
+            <div class="container mx-auto max-w-6xl !px-4 xl:!px-0 py-12">
+                <div class="course-grid">
+                    <article class="course-card shadow-lg hover:shadow-xl transition-shadow duration-300 p-3" data-x-aos="fade-up">
                         <a href="/course-detail.html" class="course-card__thumb-link">
                             <div class="course-card__thumb">
                                 <img src="https://phanhieuky.com/public/uploads/course-thumbnail/-1755487245.jpg"
-                                    alt="Xử Lý Nợ"
-                                    onerror="this.style.background='linear-gradient(135deg,#1a1a1a,#2a2a2a)';this.style.display='block';this.style.height='200px';">
+                                     alt="Xử Lý Nợ"
+                                     onerror="this.style.background='linear-gradient(135deg,#1a1a1a,#2a2a2a)';this.style.display='block';this.style.height='200px';">
+                            </div>
+
+                            <div class="course-card__body py-3">
+                                <div class="course-card__title-top">Xử Lý Nợ</div>
+                                <div class="course-card__meta">
+                                    <span class="course-card__meta-icon"><i class="fas fa-book-open text-[#6B7385]"></i></span>
+                                    <span>19 bài học</span>
+                                </div>
+                                <div class="course-card__btn">
+                                    Tìm hiểu thêm
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
                             </div>
                         </a>
-                        <div class="course-card__body">
-                            <div class="course-card__meta">
-                                <span class="course-card__meta-icon"><i class="bi bi-camera-video-fill"></i></span>
-                                <span>Số lượng bài học: <strong>19 buổi qua Zoom</strong></span>
-                            </div>
-                            <p class="course-card__desc">
-                                Bạn đang tìm cách kiếm thêm nguồn thu nhập, tăng thu – giảm chi. Bạn đang mệt mỏi vì gánh nặng nợ nần – từ vay ngân hàng...
-                            </p>
-                            <a href="/course-detail.html" class="course-card__btn">XEM CHI TIẾT</a>
-                        </div>
                     </article>
 
-                    <article class="course-card" data-x-aos="fade-up" data-aos-delay="100">
-                        <div class="course-card__header">
-                            <span class="course-card__title-top">Vàng Là Dễ - Nắm Bắt Siêu Chu...</span>
-                        </div>
+                    <article class="course-card shadow-lg hover:shadow-xl transition-shadow duration-300 p-3" data-x-aos="fade-up" data-aos-delay="100">
                         <a href="/course-detail.html" class="course-card__thumb-link">
                             <div class="course-card__thumb">
                                 <img src="https://phanhieuky.com/public/uploads/course-thumbnail/-1763200168.png"
-                                    alt="Vàng Là Dễ"
-                                    onerror="this.style.background='linear-gradient(135deg,#fda803,#f3de58)';this.style.display='block';this.style.height='200px';">
+                                     alt="Vàng Là Dễ"
+                                     onerror="this.style.background='linear-gradient(135deg,#fda803,#f3de58)';this.style.display='block';this.style.height='200px';">
+                            </div>
+
+                            <div class="course-card__body py-3">
+                                <div class="course-card__title-top">Vàng Là Dễ - Nắm Bắt Siêu Chu...</div>
+                                <div class="course-card__meta">
+                                    <span class="course-card__meta-icon"><i class="fas fa-book-open text-[#6B7385]"></i></span>
+                                    <span>19 bài học</span>
+                                </div>
+                                <div class="course-card__btn">
+                                    Tìm hiểu thêm
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
                             </div>
                         </a>
-                        <div class="course-card__body">
-                            <div class="course-card__meta">
-                                <span class="course-card__meta-icon"><i class="bi bi-camera-video-fill"></i></span>
-                                <span>Số lượng bài học: <strong>46 buổi qua Zoom</strong></span>
-                            </div>
-                            <p class="course-card__desc">
-                                "Vàng Là Dễ – Nắm Bắt Siêu Chu Kỳ Của Vàng" giúp bạn hiểu vàng từ A-Z: bản chất vàng, chu kỳ giá, vàng vật chất, vàng ch...
-                            </p>
-                            <a href="/course-detail.html" class="course-card__btn">XEM CHI TIẾT</a>
-                        </div>
                     </article>
 
-                    <article class="course-card" data-x-aos="fade-up" data-aos-delay="200">
-                        <div class="course-card__header">
-                            <span class="course-card__title-top">MEMBERSHIP</span>
-                        </div>
+                    <article class="course-card shadow-lg hover:shadow-xl transition-shadow duration-300 p-3" data-x-aos="fade-up" data-aos-delay="200">
                         <a href="/course-detail.html" class="course-card__thumb-link">
                             <div class="course-card__thumb">
                                 <img src="https://phanhieuky.com/public/uploads/course-thumbnail/-1758945931.png"
-                                    alt="Membership"
-                                    onerror="this.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='block';this.style.height='200px';">
+                                     alt="Membership"
+                                     onerror="this.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='block';this.style.height='200px';">
+                            </div>
+
+                            <div class="course-card__body py-3">
+                                <div class="course-card__title-top">MEMBERSHIP</div>
+                                <div class="course-card__meta">
+                                    <span class="course-card__meta-icon"><i class="fas fa-book-open text-[#6B7385]"></i></span>
+                                    <span>9 bài học</span>
+                                </div>
+                                <div class="course-card__btn">
+                                    Tìm hiểu thêm
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
                             </div>
                         </a>
-                        <div class="course-card__body">
-                            <div class="course-card__meta">
-                                <span class="course-card__meta-icon"><i class="bi bi-camera-video-fill"></i></span>
-                                <span>Số lượng bài học: <strong>1 buổi qua Zoom</strong></span>
-                            </div>
-                            <p class="course-card__desc">
-                                Khóa Membership 1 năm cùng chuyên gia Phan Hiếu Kỳ là chương trình huấn luyện đầu tư chuyên sâu, giúp bạn xây dựng lộ tr...
-                            </p>
-                            <a href="/course-detail.html" class="course-card__btn">XEM CHI TIẾT</a>
-                        </div>
                     </article>
 
-                </div><!-- /.course-grid -->
+                </div>
 
                 <!-- Pagination -->
                 <nav class="courses-pagination" aria-label="Phân trang khóa học">
