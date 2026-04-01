@@ -2,7 +2,7 @@
 /**
  * Template Name: Courses
  */
-get_header();
+get_header('account');
 ?>
 <main class="courses-list-main">
 
