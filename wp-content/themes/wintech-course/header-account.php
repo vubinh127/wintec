@@ -75,9 +75,9 @@
                                             <?php
                                             $roles = wp_get_current_user()->roles;
                                             $role_labels = [
-                                                'administrator'  => 'Quản trị viên',
-                                                'hoc_vien_vip'   => 'Học viên VIP',
-                                                'hoc_vien'       => 'Học viên',
+                                                'administrator'  => 'Quản Trị Viên',
+                                                'hoc_vien_vip'   => 'Học Viên VIP',
+                                                'hoc_vien'       => 'Học Viên',
                                             ];
                                             $role = $roles[0] ?? '';
                                             echo esc_html($role_labels[$role] ?? ucfirst($role));
@@ -197,7 +197,7 @@
                 <p class="text-gray-900 font-semibold text-sm leading-tight truncate">Phan Hieu Ky</p>
                 <p class="text-gray-400 text-xs mt-0.5 truncate">@gmail.com</p>
             </div>
-            <a href="<?php echo wp_logout_url(home_url('/login')); ?>"
+            <a href=""
                 class="shrink-0 w-8 h-8 flex items-center justify-center text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
@@ -236,7 +236,7 @@
             </li>
         </ul> -->
 
-        <!-- <div class="h-px bg-gray-200 mx-5 my-1"></div> -->
+        <div class="h-px bg-gray-200 mx-5 my-1"></div>
 
         <!-- <ul class="py-1">
             <li>
