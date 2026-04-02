@@ -34,12 +34,14 @@
                 <div class="flex items-center gap-2">
 
                     <?php
-                    if (is_user_logged_in()) { ?>
+                    if (is_user_logged_in()) { 
+                        $avatar = get_avatar_url(get_current_user_id(), ['size' => 44]);
+                        ?>
                         <div class="relative hidden lg:block" id="acc-dropdown-wrapper">
                             <button id="acc-dropdown-trigger"
                                 class="flex items-center gap-1.5 p-1 rounded-full hover:bg-gray-100 transition-colors duration-150 focus:outline-none cursor-pointer">
                                 <span class="w-8 h-8 rounded-full overflow-hidden block border-2 border-gray-200 shrink-0">
-                                    <img src="https://picsum.photos/200/300" alt="avatar" class="w-full h-full object-cover">
+                                    <img src="<?php echo esc_url($avatar); ?>" alt="avatar" class="w-full h-full object-cover">
                                 </span>
                                 <svg id="acc-dropdown-chevron"
                                     class="w-3.5 h-3.5 text-gray-500 transition-transform duration-200 shrink-0"
@@ -51,17 +53,40 @@
                             <div id="acc-dropdown-menu"
                                 class="hidden absolute right-0 top-[calc(100%+8px)] bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden z-[999]"
                                 style="min-width:230px;">
-                                <div class="flex items-center gap-3 px-4 pt-4 pb-3">
+                                <!-- <div class="flex items-center gap-3 px-4 pt-4 pb-3">
                                     <div class="w-11 h-11 rounded-full overflow-hidden shrink-0 bg-gray-100 border border-gray-200">
-                                        <img src="https://picsum.photos/200/300" alt="avatar" class="w-full h-full object-cover">
+                                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/placeholder-course.png" alt="avatar" class="w-full h-full object-cover">
                                     </div>
                                     <div class="overflow-hidden">
                                         <p class="text-gray-900 font-bold text-sm leading-tight truncate">Phan Hieu Ky</p>
                                         <p class="text-gray-400 text-xs mt-0.5">Student</p>
                                     </div>
+                                </div> -->
+                                <div class="flex items-center gap-3 px-4 pt-4 pb-3">
+                                    <div class="w-11 h-11 rounded-full overflow-hidden shrink-0 bg-gray-100 border border-gray-200">
+                                        
+                                        <img src="<?php echo esc_url($avatar); ?>" alt="avatar" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="overflow-hidden">
+                                        <p class="text-gray-900 font-bold text-sm leading-tight truncate">
+                                            <?php echo esc_html(wp_get_current_user()->display_name); ?>
+                                        </p>
+                                        <p class="text-gray-400 text-xs mt-0.5">
+                                            <?php
+                                            $roles = wp_get_current_user()->roles;
+                                            $role_labels = [
+                                                'administrator'  => 'Quản trị viên',
+                                                'hoc_vien_vip'   => 'Học viên VIP',
+                                                'hoc_vien'       => 'Học viên',
+                                            ];
+                                            $role = $roles[0] ?? '';
+                                            echo esc_html($role_labels[$role] ?? ucfirst($role));
+                                            ?>
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="h-px bg-gray-100"></div>
-                                <ul class="py-1">
+                                <!-- <ul class="py-1">
                                     <li><a href="#" class="flex items-center gap-3 px-4 py-2.5 text-gray-700 text-[13.5px] hover:bg-gray-50 transition-colors duration-150">
                                             <svg class="w-[18px] h-[18px] shrink-0 text-gray-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" />
@@ -99,10 +124,10 @@
                                                 <polyline stroke-linecap="round" stroke-linejoin="round" points="1 4 3 11 10 9" />
                                             </svg>
                                             Lịch sử mua hàng</a></li>
-                                </ul>
+                                </ul> -->
                                 <div class="h-px bg-gray-100"></div>
                                 <div class="py-1">
-                                    <a href=""
+                                    <a href="<?php echo wp_logout_url(home_url('/login')); ?>"
                                         class="flex items-center gap-3 px-4 py-2.5 text-red-500 text-[13.5px] hover:bg-red-50 transition-colors duration-150">
                                         <svg class="w-[18px] h-[18px] shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
@@ -166,13 +191,13 @@
 
         <div class="flex items-center gap-3 px-3 py-4 border-b border-gray-100">
             <div class="w-11 h-11 rounded-full overflow-hidden shrink-0 bg-gray-100 border border-gray-200">
-                <img src="https://picsum.photos/200/300" alt="avatar" class="w-full h-full object-cover">
+                <img src="<?php echo esc_url($avatar); ?>" alt="avatar" class="w-full h-full object-cover">
             </div>
             <div class="flex-1 overflow-hidden">
                 <p class="text-gray-900 font-semibold text-sm leading-tight truncate">Phan Hieu Ky</p>
                 <p class="text-gray-400 text-xs mt-0.5 truncate">@gmail.com</p>
             </div>
-            <a href=""
+            <a href="<?php echo wp_logout_url(home_url('/login')); ?>"
                 class="shrink-0 w-8 h-8 flex items-center justify-center text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
@@ -182,7 +207,7 @@
             </a>
         </div>
 
-        <ul class="py-1">
+        <!-- <ul class="py-1">
             <li>
                 <a href="#" class="flex items-center justify-between px-3 py-3.5 text-gray-800 text-[15px] hover:bg-gray-50 transition-colors duration-150">
                     Khóa Học Của Tôi
@@ -209,11 +234,11 @@
                     Lịch sử mua hàng
                 </a>
             </li>
-        </ul>
+        </ul> -->
 
-        <div class="h-px bg-gray-200 mx-5 my-1"></div>
+        <!-- <div class="h-px bg-gray-200 mx-5 my-1"></div> -->
 
-        <ul class="py-1">
+        <!-- <ul class="py-1">
             <li>
                 <a href="" class="flex items-center px-3 py-3.5 text-gray-800 text-[15px] hover:bg-gray-50 transition-colors duration-150">
                     Nhà
@@ -239,7 +264,7 @@
                     Học livestream
                 </a>
             </li>
-        </ul>
+        </ul> -->
 
     </div>
 

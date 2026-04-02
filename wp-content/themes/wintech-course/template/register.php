@@ -81,17 +81,6 @@ get_header('account');
                     Xem sự phát triển của bạn và nhận hỗ trợ tư vấn!
                 </p>
 
-                <?php
-                if (!empty($errors)) : ?>
-                    <div class="auth-alert auth-alert--error">
-                        <?php
-                        foreach ($errors as $error) {
-                            echo '<div>' . $error . '</div>';
-                        }
-                        ?>
-                    </div>
-                <?php endif; ?>
-
                 <form method="POST" novalidate>
                     <?php wp_nonce_field('custom_register', 'register_nonce'); ?>
 
