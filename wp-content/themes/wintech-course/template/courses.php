@@ -99,6 +99,20 @@ $query = new WP_Query([
                                 </div>
 
                             </a>
+
+<!--                            Nếu không phải vip thì dùng đoạn dưới  -->
+
+<!--                            <div class="course-card__lock-overlay">-->
+<!--                                <div class="course-card__lock-box">-->
+<!--                                    <div class="course-card__lock-icon">-->
+<!--                                        <i class="fas fa-lock"></i>-->
+<!--                                    </div>-->
+<!--                                    <div class="course-card__lock-title">Chỉ dành cho thành viên</div>-->
+<!--                                    <div class="course-card__lock-desc">-->
+<!--                                        Đăng nhập tài khoản phù hợp để truy cập nội dung này-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </article>
 
                         <?php $delay = ($delay + 100) % 400; ?>

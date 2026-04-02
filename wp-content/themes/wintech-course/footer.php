@@ -120,174 +120,174 @@
 
     <!-- Modal login  -->
 
-    <div id="modal-auth" class="auth-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
-        <div class="auth-modal-container">
-            <div class="auth-modal-header">
-                <div class="auth-modal-header-content">
-                    <h2 id="authModalTitle" class="auth-modal-title">[ ĐĂNG KÝ NGAY - MIỄN PHÍ 100% ]</h2>
-                    <div class="auth-modal-subtitle">
-                        <span class="auth-modal-icon">🎯</span>
-                        <span>Chỉ 1 bước - Vào học ngay, không cần thêm thông tin</span>
-                    </div>
-                </div>
-                <button id="close-auth-modal" class="auth-modal-close" aria-label="Đóng">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="p-4">
-                <div class="auth-modal-body">
-                    <div class="auth-tabs">
-                        <button class="auth-tab auth-tab--active" id="tab-login" data-tab="login">
-                            <img src="<?php echo get_stylesheet_directory_uri() ?> /assets/images/tab-active-left.png">
-                            <span class="position-relative">ĐĂNG NHẬP</span>
-                        </button>
-                        <button class="auth-tab" id="tab-register" data-tab="register">
-                            <img src="<?php echo get_stylesheet_directory_uri() ?> /assets/images/tab-active-right.png">
-                            <span class="position-relative">ĐĂNG KÝ</span>
-                        </button>
-                    </div>
-
-                    <div class="auth-tab-content">
-                        <div class="auth-pane auth-pane--active" id="pane-login">
-                            <p class="auth-intro">Chào mừng bạn đã quay lại. <span class="auth-intro--highlight">Đăng nhập
-                                để bắt đầu học ngay!</span></p>
-                            <form id="login-form" novalidate>
-                                <div class="auth-form-group">
-                                    <label for="login-email" class="auth-label">Email:</label>
-                                    <input type="email" id="login-email" name="email" class="auth-input"
-                                           autocomplete="email">
-                                </div>
-                                <div class="auth-form-group">
-                                    <label for="login-password" class="auth-label">Mật khẩu:</label>
-                                    <div class="auth-password-field">
-                                        <input type="password" id="login-password" name="password" class="auth-input"
-                                               autocomplete="current-password">
-                                        <button type="button" class="auth-password-toggle" aria-label="Hiện/Ẩn mật khẩu">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                 stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
-                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                                <circle cx="12" cy="12" r="3"></circle>
-                                            </svg>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                 stroke-linecap="round" stroke-linejoin="round" class="eye-off-icon"
-                                                 style="display:none">
-                                                <path
-                                                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
-                                                </path>
-                                                <line x1="1" y1="1" x2="23" y2="23"></line>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="auth-form-row-between">
-                                    <label class="auth-checkbox-label">
-                                        <input type="checkbox" id="login-remember" name="remember_me">
-                                        <span>Ghi nhớ tài khoản</span>
-                                    </label>
-                                    <a href="#" class="auth-link">Quên mật khẩu?</a>
-                                </div>
-                                <button type="submit" class="auth-submit-btn" id="login-submit-btn">
-                                    <img src="https://phanhieuky.com/public/assets/frontend/course-shopee/assets/images/free-tag.png"
-                                         alt="FREE" class="auth-free-tag">
-                                    <div class="auth-btn-text">
-                                        <div class="auth-btn-title">ĐĂNG NHẬP HỌC NGAY</div>
-                                        <div class="auth-btn-subtitle">Hoàn toàn MIỄN PHÍ | Hiệu quả cao</div>
-                                    </div>
-                                </button>
-                            </form>
-                        </div>
-
-                        <div class="auth-pane" id="pane-register">
-                            <p class="auth-intro">Không có thêm bước nào cả. <span class="auth-intro--highlight">Đăng ký là
-                                xem được ngay!</span></p>
-                            <form id="register-form" novalidate>
-                                <div class="auth-form-group">
-                                    <label for="register-email" class="auth-label">Email:</label>
-                                    <input type="email" id="register-email" name="email" class="auth-input"
-                                           autocomplete="email">
-                                </div>
-                                <div class="auth-form-row-half">
-                                    <div class="auth-form-group">
-                                        <label for="register-password" class="auth-label">Mật khẩu:</label>
-                                        <div class="auth-password-field">
-                                            <input type="password" id="register-password" name="password" class="auth-input"
-                                                   autocomplete="new-password">
-                                            <button type="button" class="auth-password-toggle"
-                                                    aria-label="Hiện/Ẩn mật khẩu">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                     stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
-                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                                    <circle cx="12" cy="12" r="3"></circle>
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                     stroke-linecap="round" stroke-linejoin="round" class="eye-off-icon"
-                                                     style="display:none">
-                                                    <path
-                                                            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
-                                                    </path>
-                                                    <line x1="1" y1="1" x2="23" y2="23"></line>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="auth-form-group">
-                                        <label for="register-confirm_password" class="auth-label">Xác nhận mật khẩu:</label>
-                                        <div class="auth-password-field">
-                                            <input type="password" id="register-confirm_password" name="confirm_password"
-                                                   class="auth-input" autocomplete="new-password">
-                                            <button type="button" class="auth-password-toggle"
-                                                    aria-label="Hiện/Ẩn mật khẩu">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                     stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
-                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                                    <circle cx="12" cy="12" r="3"></circle>
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                     stroke-linecap="round" stroke-linejoin="round" class="eye-off-icon"
-                                                     style="display:none">
-                                                    <path
-                                                            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
-                                                    </path>
-                                                    <line x1="1" y1="1" x2="23" y2="23"></line>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="auth-form-group">
-                                    <label for="register-phone" class="auth-label">Số điện thoại:</label>
-                                    <input type="tel" id="register-phone" name="phone" class="auth-input"
-                                           placeholder="Số điện thoại" maxlength="10" pattern="[0-9]{10}" autocomplete="tel">
-                                    <small class="auth-hint">Số điện thoại giúp chúng tôi hỗ trợ bạn hiệu quả hơn sau khi
-                                        mua khóa học</small>
-                                </div>
-                                <button type="submit" class="auth-submit-btn" id="register-submit-btn">
-                                    <img src="https://phanhieuky.com/public/assets/frontend/course-shopee/assets/images/free-tag.png"
-                                         alt="FREE" class="auth-free-tag">
-                                    <div class="auth-btn-text">
-                                        <div class="auth-btn-title">ĐĂNG KÝ HỌC THỬ NGAY</div>
-                                        <div class="auth-btn-subtitle">Hoàn toàn MIỄN PHÍ | Hiệu quả cao</div>
-                                    </div>
-                                </button>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--    <div id="modal-auth" class="auth-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">-->
+<!--        <div class="auth-modal-container">-->
+<!--            <div class="auth-modal-header">-->
+<!--                <div class="auth-modal-header-content">-->
+<!--                    <h2 id="authModalTitle" class="auth-modal-title">[ ĐĂNG KÝ NGAY - MIỄN PHÍ 100% ]</h2>-->
+<!--                    <div class="auth-modal-subtitle">-->
+<!--                        <span class="auth-modal-icon">🎯</span>-->
+<!--                        <span>Chỉ 1 bước - Vào học ngay, không cần thêm thông tin</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <button id="close-auth-modal" class="auth-modal-close" aria-label="Đóng">-->
+<!--                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"-->
+<!--                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">-->
+<!--                        <line x1="18" y1="6" x2="6" y2="18"></line>-->
+<!--                        <line x1="6" y1="6" x2="18" y2="18"></line>-->
+<!--                    </svg>-->
+<!--                </button>-->
+<!--            </div>-->
+<!---->
+<!--            <div class="p-4">-->
+<!--                <div class="auth-modal-body">-->
+<!--                    <div class="auth-tabs">-->
+<!--                        <button class="auth-tab auth-tab--active" id="tab-login" data-tab="login">-->
+<!--                            <img src="--><?php //echo get_stylesheet_directory_uri() ?><!-- /assets/images/tab-active-left.png">-->
+<!--                            <span class="position-relative">ĐĂNG NHẬP</span>-->
+<!--                        </button>-->
+<!--                        <button class="auth-tab" id="tab-register" data-tab="register">-->
+<!--                            <img src="--><?php //echo get_stylesheet_directory_uri() ?><!-- /assets/images/tab-active-right.png">-->
+<!--                            <span class="position-relative">ĐĂNG KÝ</span>-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="auth-tab-content">-->
+<!--                        <div class="auth-pane auth-pane--active" id="pane-login">-->
+<!--                            <p class="auth-intro">Chào mừng bạn đã quay lại. <span class="auth-intro--highlight">Đăng nhập-->
+<!--                                để bắt đầu học ngay!</span></p>-->
+<!--                            <form id="login-form" novalidate>-->
+<!--                                <div class="auth-form-group">-->
+<!--                                    <label for="login-email" class="auth-label">Email:</label>-->
+<!--                                    <input type="email" id="login-email" name="email" class="auth-input"-->
+<!--                                           autocomplete="email">-->
+<!--                                </div>-->
+<!--                                <div class="auth-form-group">-->
+<!--                                    <label for="login-password" class="auth-label">Mật khẩu:</label>-->
+<!--                                    <div class="auth-password-field">-->
+<!--                                        <input type="password" id="login-password" name="password" class="auth-input"-->
+<!--                                               autocomplete="current-password">-->
+<!--                                        <button type="button" class="auth-password-toggle" aria-label="Hiện/Ẩn mật khẩu">-->
+<!--                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"-->
+<!--                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"-->
+<!--                                                 stroke-linecap="round" stroke-linejoin="round" class="eye-icon">-->
+<!--                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>-->
+<!--                                                <circle cx="12" cy="12" r="3"></circle>-->
+<!--                                            </svg>-->
+<!--                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"-->
+<!--                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"-->
+<!--                                                 stroke-linecap="round" stroke-linejoin="round" class="eye-off-icon"-->
+<!--                                                 style="display:none">-->
+<!--                                                <path-->
+<!--                                                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">-->
+<!--                                                </path>-->
+<!--                                                <line x1="1" y1="1" x2="23" y2="23"></line>-->
+<!--                                            </svg>-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="auth-form-row-between">-->
+<!--                                    <label class="auth-checkbox-label">-->
+<!--                                        <input type="checkbox" id="login-remember" name="remember_me">-->
+<!--                                        <span>Ghi nhớ tài khoản</span>-->
+<!--                                    </label>-->
+<!--                                    <a href="#" class="auth-link">Quên mật khẩu?</a>-->
+<!--                                </div>-->
+<!--                                <button type="submit" class="auth-submit-btn" id="login-submit-btn">-->
+<!--                                    <img src="https://phanhieuky.com/public/assets/frontend/course-shopee/assets/images/free-tag.png"-->
+<!--                                         alt="FREE" class="auth-free-tag">-->
+<!--                                    <div class="auth-btn-text">-->
+<!--                                        <div class="auth-btn-title">ĐĂNG NHẬP HỌC NGAY</div>-->
+<!--                                        <div class="auth-btn-subtitle">Hoàn toàn MIỄN PHÍ | Hiệu quả cao</div>-->
+<!--                                    </div>-->
+<!--                                </button>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!---->
+<!--                        <div class="auth-pane" id="pane-register">-->
+<!--                            <p class="auth-intro">Không có thêm bước nào cả. <span class="auth-intro--highlight">Đăng ký là-->
+<!--                                xem được ngay!</span></p>-->
+<!--                            <form id="register-form" novalidate>-->
+<!--                                <div class="auth-form-group">-->
+<!--                                    <label for="register-email" class="auth-label">Email:</label>-->
+<!--                                    <input type="email" id="register-email" name="email" class="auth-input"-->
+<!--                                           autocomplete="email">-->
+<!--                                </div>-->
+<!--                                <div class="auth-form-row-half">-->
+<!--                                    <div class="auth-form-group">-->
+<!--                                        <label for="register-password" class="auth-label">Mật khẩu:</label>-->
+<!--                                        <div class="auth-password-field">-->
+<!--                                            <input type="password" id="register-password" name="password" class="auth-input"-->
+<!--                                                   autocomplete="new-password">-->
+<!--                                            <button type="button" class="auth-password-toggle"-->
+<!--                                                    aria-label="Hiện/Ẩn mật khẩu">-->
+<!--                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"-->
+<!--                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"-->
+<!--                                                     stroke-linecap="round" stroke-linejoin="round" class="eye-icon">-->
+<!--                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>-->
+<!--                                                    <circle cx="12" cy="12" r="3"></circle>-->
+<!--                                                </svg>-->
+<!--                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"-->
+<!--                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"-->
+<!--                                                     stroke-linecap="round" stroke-linejoin="round" class="eye-off-icon"-->
+<!--                                                     style="display:none">-->
+<!--                                                    <path-->
+<!--                                                            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">-->
+<!--                                                    </path>-->
+<!--                                                    <line x1="1" y1="1" x2="23" y2="23"></line>-->
+<!--                                                </svg>-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="auth-form-group">-->
+<!--                                        <label for="register-confirm_password" class="auth-label">Xác nhận mật khẩu:</label>-->
+<!--                                        <div class="auth-password-field">-->
+<!--                                            <input type="password" id="register-confirm_password" name="confirm_password"-->
+<!--                                                   class="auth-input" autocomplete="new-password">-->
+<!--                                            <button type="button" class="auth-password-toggle"-->
+<!--                                                    aria-label="Hiện/Ẩn mật khẩu">-->
+<!--                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"-->
+<!--                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"-->
+<!--                                                     stroke-linecap="round" stroke-linejoin="round" class="eye-icon">-->
+<!--                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>-->
+<!--                                                    <circle cx="12" cy="12" r="3"></circle>-->
+<!--                                                </svg>-->
+<!--                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"-->
+<!--                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"-->
+<!--                                                     stroke-linecap="round" stroke-linejoin="round" class="eye-off-icon"-->
+<!--                                                     style="display:none">-->
+<!--                                                    <path-->
+<!--                                                            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">-->
+<!--                                                    </path>-->
+<!--                                                    <line x1="1" y1="1" x2="23" y2="23"></line>-->
+<!--                                                </svg>-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="auth-form-group">-->
+<!--                                    <label for="register-phone" class="auth-label">Số điện thoại:</label>-->
+<!--                                    <input type="tel" id="register-phone" name="phone" class="auth-input"-->
+<!--                                           placeholder="Số điện thoại" maxlength="10" pattern="[0-9]{10}" autocomplete="tel">-->
+<!--                                    <small class="auth-hint">Số điện thoại giúp chúng tôi hỗ trợ bạn hiệu quả hơn sau khi-->
+<!--                                        mua khóa học</small>-->
+<!--                                </div>-->
+<!--                                <button type="submit" class="auth-submit-btn" id="register-submit-btn">-->
+<!--                                    <img src="https://phanhieuky.com/public/assets/frontend/course-shopee/assets/images/free-tag.png"-->
+<!--                                         alt="FREE" class="auth-free-tag">-->
+<!--                                    <div class="auth-btn-text">-->
+<!--                                        <div class="auth-btn-title">ĐĂNG KÝ HỌC THỬ NGAY</div>-->
+<!--                                        <div class="auth-btn-subtitle">Hoàn toàn MIỄN PHÍ | Hiệu quả cao</div>-->
+<!--                                    </div>-->
+<!--                                </button>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!---->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 <?php wp_footer(); ?>
 </body>
 </html>

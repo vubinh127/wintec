@@ -3,6 +3,18 @@
  * Template Name: Home
  */
 get_header();
+
+
+$args = array(
+        'post_type' => 'khoa_hoc',
+        'posts_per_page' => 3,
+        'post_status' => 'publish',
+        'orderby' => 'date',
+        'order' => 'DESC',
+);
+
+$khoa_hoc_query = new WP_Query($args);
+
 ?>
    <main class="top-page">
         <section class="hero section-bg">
@@ -268,143 +280,79 @@ get_header();
                     bắt chu kỳ kinh tế và phân bổ dòng tiền hiệu quả.
                 </p>
                 <div class="mb-[122px]">
-                    <div
-                        class="flex flex-wrap justify-center gap-x-5 gap-y-6 lg:gap-x-5 lg:gap-y-0 lg:!flex-nowrap lg:justify-between">
-                        <div class="max-w-80 md:max-w-[unset] w-full md:w-2/5 lg:w-1/3 lg:max-w-[342px] flex flex-col"
-                            data-aos="fade-right" data-aos-delay="300">
-                            <div class="flex justify-center items-center mx-auto w-60 lg:w-[280px] h-[62px] text-center bg-no-repeat bg-left-top bg-cover bg-origin-content"
-                                style="
-                                        border-radius: 20px 20px 0px 0px;
-                                        background-image: url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/tag-silver-bg.jpg);
-                                    ">
-                                <h3 class="text-xl leading-[1.2] text-[#020202]">
-                                    Xử Lý Nợ
-                                </h3>
-                            </div>
-                            <div
-                                class="flex-auto !p-2 border border-solid !border-[#ffc200] bg-[#282828] rounded-[20px]">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/-1755487245.jpg" alt="Xử Lý Nợ" width="326px" height="197px"
-                                    class="rounded-[13px] w-full h-[197px] object-cover object-center !mb-3">
+                    <div class="flex flex-wrap justify-center gap-x-5 gap-y-6 lg:gap-x-5 lg:gap-y-0 lg:!flex-nowrap lg:justify-between">
+                        <?php
+                        if ($khoa_hoc_query->have_posts()) :
+                            while ($khoa_hoc_query->have_posts()) : $khoa_hoc_query->the_post();
 
-                                <div class="flex items-center justify-center gap-x-3.5">
-                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/zoom.png" alt="" width="51" height="51"
-                                        class="w-[51px] h-[51px] object-cover object-center">
-                                    <p class="text-base leading-[1.4] text-white text-left">
-                                        Số lượng bài học: <br><span style="font-weight: bold">
-                                            19 buổi qua Zoom
-                                        </span>
-                                    </p>
-                                </div>
+                                $title = get_the_title();
+                                $link = get_permalink();
+                                $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                                $excerpt = get_the_excerpt();
 
-                                <div
-                                    class="w-[54px] my-2.5 mx-auto !py-2 px-0 !border-0 !border-t-[3px] border-solid border-[#ffc200]">
-                                </div>
-                                <ul class="list !px-3 text-white text-base">
-                                    <li>Bạn đang tìm cách kiếm thêm nguồn thu nhập, tăng thu - giảm chi. Bạn đang mệt
-                                        mỏi vì
-                                        gánh nặng nợ nần – từ vay ngân hàng...
-                                    </li>
-                                </ul>
-                                <div
-                                    class="w-[205px] h-[50px] mt-7 mx-auto text-xl leading-[1.6] font-normal mb-[18px]">
-                                    <a href="https://phanhieuky.com/khoa-hoc/xu-ly-no"
-                                        class="animate-pulse-small flex justify-center items-center w-full h-full bg-gradient-to-r from-[#f3de58] to-[#fda803] text-black rounded hover:from-[#faf4b0] hover:to-[#faf4b0] transition-colors">
-                                        XEM CHI TIẾT
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="max-w-80 md:max-w-[unset] w-full md:w-2/5 lg:w-1/3 lg:max-w-[342px] flex flex-col"
-                            data-aos="fade-right" data-aos-delay="500">
-                            <div class="flex justify-center items-center mx-auto w-60 lg:w-[280px] h-[62px] text-center bg-no-repeat bg-left-top bg-cover bg-origin-content"
-                                style="
-                                        border-radius: 20px 20px 0px 0px;
-                                        background-image: url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/tag-silver-bg.jpg);
-                                    ">
-                                <h3 class="text-xl leading-[1.2] text-[#020202]">
-                                    Vàng Là Dễ - Nắm Bắt Siêu Chu...
-                                </h3>
-                            </div>
-                            <div
-                                class="flex-auto !p-2 border border-solid !border-[#ffc200] bg-[#282828] rounded-[20px]">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/-1763200168.png"
-                                    alt="Vàng Là Dễ - Nắm Bắt Siêu Chu Kỳ Của Vàng" width="326px" height="197px"
-                                    class="rounded-[13px] w-full h-[197px] object-cover object-center !mb-3">
+                                if (!$thumbnail) {
+                                    $thumbnail = get_stylesheet_directory_uri() . '/assets/images/default-course.jpg';
+                                }
+                                ?>
+                                <div class="max-w-80 md:max-w-[unset] w-full md:w-2/5 lg:w-1/3 lg:max-w-[342px] flex flex-col"
+                                     data-aos="fade-right" data-aos-delay="300">
 
-                                <div class="flex items-center justify-center gap-x-3.5">
-                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/zoom.png" alt="" width="51" height="51"
-                                        class="w-[51px] h-[51px] object-cover object-center">
-                                    <p class="text-base leading-[1.4] text-white text-left">
-                                        Số lượng bài học: <br><span style="font-weight: bold">
-                                            46 buổi qua Zoom
-                                        </span>
-                                    </p>
-                                </div>
+                                    <div class="flex justify-center items-center mx-auto w-60 lg:w-[280px] h-[62px] text-center bg-no-repeat bg-left-top bg-cover bg-origin-content"
+                                         style="
+                                                 border-radius: 20px 20px 0px 0px;
+                                                 background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/tag-silver-bg.jpg);
+                                                 ">
+                                        <h3 class="text-xl leading-[1.2] text-[#020202]">
+                                            <?php echo esc_html($title); ?>
+                                        </h3>
+                                    </div>
 
-                                <div
-                                    class="w-[54px] my-2.5 mx-auto !py-2 px-0 !border-0 !border-t-[3px] border-solid border-[#ffc200]">
-                                </div>
-                                <ul class="list !px-3 text-white text-base">
-                                    <li>“Vàng Là Dễ - Nắm Bắt Siêu Chu Kỳ Của Vàng” giúp bạn hiểu vàng từ A-Z: bản chất
-                                        vàng, chu kỳ giá, vàng vật chất, vàng ch...
-                                    </li>
-                                </ul>
-                                <div
-                                    class="w-[205px] h-[50px] mt-7 mx-auto text-xl leading-[1.6] font-normal mb-[18px]">
-                                    <a href="https://phanhieuky.com/khoa-hoc/vang-la-de-nam-bat-sieu-chu-ky-cua-vang"
-                                        class="animate-pulse-small flex justify-center items-center w-full h-full bg-gradient-to-r from-[#f3de58] to-[#fda803] text-black rounded hover:from-[#faf4b0] hover:to-[#faf4b0] transition-colors">
-                                        XEM CHI TIẾT
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="max-w-80 md:max-w-[unset] w-full md:w-2/5 lg:w-1/3 lg:max-w-[342px] flex flex-col"
-                            data-aos="fade-right" data-aos-delay="700">
-                            <div class="flex justify-center items-center mx-auto w-60 lg:w-[280px] h-[62px] text-center bg-no-repeat bg-left-top bg-cover bg-origin-content"
-                                style="
-                                        border-radius: 20px 20px 0px 0px;
-                                        background-image: url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/tag-silver-bg.jpg);
-                                    ">
-                                <h3 class="text-xl leading-[1.2] text-[#020202]">
-                                    MEMBERSHIP
-                                </h3>
-                            </div>
-                            <div
-                                class="flex-auto !p-2 border border-solid !border-[#ffc200] bg-[#282828] rounded-[20px]">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/-1758945931.png" alt="MEMBERSHIP" width="326px" height="197px"
-                                    class="rounded-[13px] w-full h-[197px] object-cover object-center !mb-3">
+                                    <div class="flex-auto !p-2 border border-solid !border-[#ffc200] bg-[#282828] rounded-[20px]">
+                                        <img src="<?php echo esc_url($thumbnail); ?>"
+                                             alt="<?php echo esc_attr($title); ?>"
+                                             width="326"
+                                             height="197"
+                                             class="rounded-[13px] w-full h-[197px] object-cover object-center !mb-3">
 
-                                <div class="flex items-center justify-center gap-x-3.5">
-                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/zoom.png" alt="" width="51" height="51"
-                                        class="w-[51px] h-[51px] object-cover object-center">
-                                    <p class="text-base leading-[1.4] text-white text-left">
-                                        Số lượng bài học: <br><span style="font-weight: bold">
-                                            1 buổi qua Zoom
-                                        </span>
-                                    </p>
-                                </div>
+<!--                                        <div class="flex items-center justify-center gap-x-3.5">-->
+<!--                                            <img src="--><?php //echo get_stylesheet_directory_uri(); ?><!--/assets/images/zoom.png"-->
+<!--                                                 alt=""-->
+<!--                                                 width="51"-->
+<!--                                                 height="51"-->
+<!--                                                 class="w-[51px] h-[51px] object-cover object-center">-->
+<!---->
+<!--                                            <p class="text-base leading-[1.4] text-white text-left">-->
+<!--                                                Số lượng bài học: <br>-->
+<!--                                                <span style="font-weight: bold">-->
+<!--                                                    19 buổi qua Zoom-->
+<!--                                                </span>-->
+<!--                                            </p>-->
+<!--                                        </div>-->
 
-                                <div
-                                    class="w-[54px] my-2.5 mx-auto !py-2 px-0 !border-0 !border-t-[3px] border-solid border-[#ffc200]">
+<!--                                        <div class="w-[54px] my-2.5 mx-auto !py-2 px-0 !border-0 !border-t-[3px] border-solid border-[#ffc200]"></div>-->
+
+<!--                                        <ul class="list !px-3 text-white text-base">-->
+<!--                                            <li>-->
+<!--                                                --><?php //echo esc_html(wp_trim_words($excerpt, 25, '...')); ?>
+<!--                                            </li>-->
+<!--                                        </ul>-->
+
+                                        <div class="w-[205px] h-[50px] mt-7 mx-auto text-xl leading-[1.6] font-normal mb-[18px]">
+                                            <a href="<?php echo esc_url($link); ?>"
+                                               class="animate-pulse-small flex justify-center items-center w-full h-full bg-gradient-to-r from-[#f3de58] to-[#fda803] text-black rounded hover:from-[#faf4b0] hover:to-[#faf4b0] transition-colors">
+                                                XEM CHI TIẾT
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <ul class="list !px-3 text-white text-base">
-                                    <li>Khóa Membership 1 năm cùng chuyên gia Phan Hiếu Kỳ là chương trình huấn luyện
-                                        đầu tư
-                                        chuyên sâu, giúp bạn xây dựng lộ tr...
-                                    </li>
-                                </ul>
-                                <div
-                                    class="w-[205px] h-[50px] mt-7 mx-auto text-xl leading-[1.6] font-normal mb-[18px]">
-                                    <a href="https://phanhieuky.com/khoa-hoc/membership"
-                                        class="animate-pulse-small flex justify-center items-center w-full h-full bg-gradient-to-r from-[#f3de58] to-[#fda803] text-black rounded hover:from-[#faf4b0] hover:to-[#faf4b0] transition-colors">
-                                        XEM CHI TIẾT
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                            <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        endif;
+                        ?>
                     </div>
                     <div data-aos="fade-up" data-aos-delay="800" class="text-center mt-10">
-                        <a href="https://phanhieuky.com/courses"
+                        <a href="<?php echo home_url('/courses'); ?>"
                             class="bg-gradient-to-b from-[#ff9f15] to-[#e93a00] text-base md:text-lg !px-10 !py-4 text-white rounded-full font-sf-pro-bold pulse-scaled">
                             <i class="bi bi-arrow-right-circle mr-2"></i> XEM THÊM CÁC KHÓA HỌC
                         </a>
@@ -917,178 +865,70 @@ get_header();
                     data-aos="fade-up" data-aos-duration="800">
                     TIN TỨC - KIẾN THỨC
                 </h1>
-                <div
-                    class="flex-wrap flex justify-center lg:!flex-nowrap lg:justify-start gap-x-5 gap-y-5 md:gap-x-6 lg:gap-x-[50px]">
-                    <a class="flex flex-col w-full md:w-2/5 lg:w-1/3 cursor-pointer rounded-[20px] overflow-hidden"
-                        href="https://phanhieuky.com/tin-tuc/2901-vang-dang-o-giai-doan-nuoc-rut-giu-ky-luat-quan-trong-hon-du-doan-dinh"
-                        target="_self" rel="" data-aos="fade-up" data-aos-delay="200">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/2901-vang-dang-o-giai-doan-nuoc-rut-giu-ky-luat-quan-trong-hon-du-doan-dinh-1769746709.jpg"
-                            height="252"
-                            alt="29/01 - Vàng đang ở giai đoạn nước rút. Giữ kỷ luật quan trọng hơn dự đoán đỉnh"
-                            class="w-full h-[252px] object-cover object-center">
-                        <div class="flex-auto bg-white pt-3 px-6 pb-7">
-                            <p class="text-sm leading-[1.6] flex items-center gap-x-px !mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 -960 960 960"
-                                    width="100%" preserveAspectRatio="none" class="size-[22px]"
-                                    fill="rgb(117, 117, 117)">
-                                    <path
-                                        d="M592-302 450-444v-196h60v171l124 124-42 43ZM450-730v-90h60v90h-60Zm280 280v-60h90v60h-90ZM450-140v-90h60v90h-60ZM140-450v-60h90v60h-90ZM480.27-80q-82.74 0-155.5-31.5Q252-143 197.5-197.5t-86-127.34Q80-397.68 80-480.5t31.5-155.66Q143-709 197.5-763t127.34-85.5Q397.68-880 480.5-880t155.66 31.5Q709-817 763-763t85.5 127Q880-563 880-480.27q0 82.74-31.5 155.5Q817-252 763-197.68q-54 54.31-127 86Q563-80 480.27-80Zm.23-60Q622-140 721-239.5t99-241Q820-622 721.19-721T480-820q-141 0-240.5 98.81T140-480q0 141 99.5 240.5t241 99.5Zm-.5-340Z">
-                                    </path>
-                                </svg>
-                                <span>30/01/2026</span>
-                            </p>
-                            <p class="text-base leading-[1.4] text-black mb-4 text-truncate-line-3">
-                                Giá vàng vẫn đang duy trì trạng thái nước rút liên tục từ tuần trước sang tuần này.
-                                Nhịp tăng nhanh và dốc khiến thị tr...
-                            </p>
-                            <span
-                                class="text-base leading-[1.6] block w-fit ml-auto text-[#fdb814] italic border-0 p-0 underline transition-all duration-200 hover:scale-125 hover:text-black">
-                                Đọc chi tiết
-                            </span>
-                        </div>
-                    </a>
-                    <a class="flex flex-col w-full md:w-2/5 lg:w-1/3 cursor-pointer rounded-[20px] overflow-hidden"
-                        href="https://phanhieuky.com/tin-tuc/2801-da-den-giai-doan-ha-ty-trong-vang-chien-luoc-quan-tri-loi-nhuan-ngan-han"
-                        target="_self" rel="" data-aos="fade-up" data-aos-delay="400">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/2801-da-den-giai-doan-ha-ty-trong-vang-chien-luoc-quan-tri-loi-nhuan-ngan-han-1769745572.jpg"
-                            height="252"
-                            alt="28/01 - Đã đến giai đoạn hạ tỷ trọng vàng. Chiến lược quản trị lợi nhuận ngắn hạn"
-                            class="w-full h-[252px] object-cover object-center">
-                        <div class="flex-auto bg-white pt-3 px-6 pb-7">
-                            <p class="text-sm leading-[1.6] flex items-center gap-x-px !mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 -960 960 960"
-                                    width="100%" preserveAspectRatio="none" class="size-[22px]"
-                                    fill="rgb(117, 117, 117)">
-                                    <path
-                                        d="M592-302 450-444v-196h60v171l124 124-42 43ZM450-730v-90h60v90h-60Zm280 280v-60h90v60h-90ZM450-140v-90h60v90h-60ZM140-450v-60h90v60h-90ZM480.27-80q-82.74 0-155.5-31.5Q252-143 197.5-197.5t-86-127.34Q80-397.68 80-480.5t31.5-155.66Q143-709 197.5-763t127.34-85.5Q397.68-880 480.5-880t155.66 31.5Q709-817 763-763t85.5 127Q880-563 880-480.27q0 82.74-31.5 155.5Q817-252 763-197.68q-54 54.31-127 86Q563-80 480.27-80Zm.23-60Q622-140 721-239.5t99-241Q820-622 721.19-721T480-820q-141 0-240.5 98.81T140-480q0 141 99.5 240.5t241 99.5Zm-.5-340Z">
-                                    </path>
-                                </svg>
-                                <span>30/01/2026</span>
-                            </p>
-                            <p class="text-base leading-[1.4] text-black mb-4 text-truncate-line-3">
-                                Sau nhịp tăng mạnh vừa qua, thị trường vàng đang bước vào giai đoạn cần quản trị rủi ro
-                                và
-                                bảo toàn lợi nhuận.
-                                Với nhữn...
-                            </p>
-                            <span
-                                class="text-base leading-[1.6] block w-fit ml-auto text-[#fdb814] italic border-0 p-0 underline transition-all duration-200 hover:scale-125 hover:text-black">
-                                Đọc chi tiết
-                            </span>
-                        </div>
-                    </a>
-                    <a class="flex flex-col w-full md:w-2/5 lg:w-1/3 cursor-pointer rounded-[20px] overflow-hidden"
-                        href="https://phanhieuky.com/tin-tuc/2601-nen-chuan-bi-ban-vang-cho-tuan-nay" target="_self"
-                        rel="" data-aos="fade-up" data-aos-delay="600">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/2601-nen-chuan-bi-ban-vang-cho-tuan-nay-1769421494.webp" height="252"
-                            alt="26/01 - Nên chuẩn bị bán vàng cho tuần này??"
-                            class="w-full h-[252px] object-cover object-center">
-                        <div class="flex-auto bg-white pt-3 px-6 pb-7">
-                            <p class="text-sm leading-[1.6] flex items-center gap-x-px !mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 -960 960 960"
-                                    width="100%" preserveAspectRatio="none" class="size-[22px]"
-                                    fill="rgb(117, 117, 117)">
-                                    <path
-                                        d="M592-302 450-444v-196h60v171l124 124-42 43ZM450-730v-90h60v90h-60Zm280 280v-60h90v60h-90ZM450-140v-90h60v90h-60ZM140-450v-60h90v60h-90ZM480.27-80q-82.74 0-155.5-31.5Q252-143 197.5-197.5t-86-127.34Q80-397.68 80-480.5t31.5-155.66Q143-709 197.5-763t127.34-85.5Q397.68-880 480.5-880t155.66 31.5Q709-817 763-763t85.5 127Q880-563 880-480.27q0 82.74-31.5 155.5Q817-252 763-197.68q-54 54.31-127 86Q563-80 480.27-80Zm.23-60Q622-140 721-239.5t99-241Q820-622 721.19-721T480-820q-141 0-240.5 98.81T140-480q0 141 99.5 240.5t241 99.5Zm-.5-340Z">
-                                    </path>
-                                </svg>
-                                <span>26/01/2026</span>
-                            </p>
-                            <p class="text-base leading-[1.4] text-black mb-4 text-truncate-line-3">
-                                Khả năng cao trong tuần này thị trường vàng sẽ xuất hiện điểm bán.
-                                Đây không phải là nhận định cảm tính, mà đến từ việc...
-                            </p>
-                            <span
-                                class="text-base leading-[1.6] block w-fit ml-auto text-[#fdb814] italic border-0 p-0 underline transition-all duration-200 hover:scale-125 hover:text-black">
-                                Đọc chi tiết
-                            </span>
-                        </div>
-                    </a>
+                <div class="flex-wrap flex justify-center lg:!flex-nowrap lg:justify-start gap-x-5 gap-y-5 md:gap-x-6 lg:gap-x-[50px]">
+                    <?php
+                    $args = array(
+                            'post_type' => 'post',
+                            'posts_per_page' => 3,
+                            'post_status' => 'publish',
+                            'orderby' => 'date',
+                            'order' => 'DESC',
+                    );
+
+                    $news_query = new WP_Query($args);
+
+                    if ($news_query->have_posts()) :
+                        while ($news_query->have_posts()) : $news_query->the_post();
+
+                            $title = get_the_title();
+                            $link = get_permalink();
+                            $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                            $excerpt = get_the_excerpt();
+                            $date = get_the_date('d/m/Y');
+
+                            if (!$thumbnail) {
+                                $thumbnail = get_stylesheet_directory_uri() . '/assets/images/default-news.jpg';
+                            }
+                            ?>
+                            <a class="flex flex-col w-full md:w-2/5 lg:w-1/3 cursor-pointer rounded-[20px] overflow-hidden aos-init aos-animate"
+                               href="<?php echo esc_url($link); ?>"
+                               target="_self"
+                               rel=""
+                               data-aos="fade-up"
+                               data-aos-delay="200">
+
+                                <img src="<?php echo esc_url($thumbnail); ?>"
+                                     height="252"
+                                     alt="<?php echo esc_attr($title); ?>"
+                                     class="w-full h-[252px] object-cover object-center">
+
+                                <div class="flex-auto bg-white pt-3 px-6 pb-7">
+                                    <p class="text-sm leading-[1.6] flex items-center gap-x-px !mb-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 -960 960 960"
+                                             width="100%" preserveAspectRatio="none" class="size-[22px]"
+                                             fill="rgb(117, 117, 117)">
+                                            <path d="M592-302 450-444v-196h60v171l124 124-42 43ZM450-730v-90h60v90h-60Zm280 280v-60h90v60h-90ZM450-140v-90h60v90h-60ZM140-450v-60h90v60h-90ZM480.27-80q-82.74 0-155.5-31.5Q252-143 197.5-197.5t-86-127.34Q80-397.68 80-480.5t31.5-155.66Q143-709 197.5-763t127.34-85.5Q397.68-880 480.5-880t155.66 31.5Q709-817 763-763t85.5 127Q880-563 880-480.27q0 82.74-31.5 155.5Q817-252 763-197.68q-54 54.31-127 86Q563-80 480.27-80Zm.23-60Q622-140 721-239.5t99-241Q820-622 721.19-721T480-820q-141 0-240.5 98.81T140-480q0 141 99.5 240.5t241 99.5Zm-.5-340Z"></path>
+                                        </svg>
+                                        <span><?php echo esc_html($date); ?></span>
+                                    </p>
+
+                                    <p class="text-base leading-[1.4] text-black mb-4 text-truncate-line-3">
+                                        <?php echo esc_html(wp_trim_words($excerpt, 22, '...')); ?>
+                                    </p>
+
+                                    <span class="text-base leading-[1.6] block w-fit ml-auto text-[#fdb814] italic border-0 p-0 underline transition-all duration-200 hover:scale-125 hover:text-black">
+                                        Đọc chi tiết
+                                    </span>
+                                </div>
+                            </a>
+                        <?php
+                        endwhile;
+                        wp_reset_postdata();
+                    endif;
+                    ?>
                 </div>
             </div>
         </section>
-
-        <!-- Modal Feedback -->
-        <div id="feedback-modal"
-            class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center z-[99999]">
-            <div class="bg-white rounded-lg p-6 max-w-[500px] w-full mx-4 max-h-[90vh] overflow-hidden">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-2xl text-[#0057E4]">Feedback từ học viên</h3>
-                    <button id="close-modal" class="text-gray-500 hover:text-gray-700 text-3xl font-bold">
-                        ×
-                    </button>
-                </div>
-                <!-- Loading indicator -->
-                <div id="feedback-loading" class="flex items-center justify-center h-[400px]">
-                    <div class="flex flex-col items-center">
-                        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0057E4] mb-4"></div>
-                        <p class="text-gray-600">Đang tải feedback...</p>
-                    </div>
-                </div>
-                <div class="feedback-slider" style="display: none">
-                    <div class="feedback-item">
-                        <img src="https://phanhieuky.com/public/assets/frontend/trainer-hieu/assets/images/feedback/1.jpg"
-                            alt="Feedback 1"
-                            class="w-full max-h-[500px] object-contain h-auto rounded-lg feedback-image">
-                    </div>
-                    <div class="feedback-item">
-                        <img src="https://phanhieuky.com/public/assets/frontend/trainer-hieu/assets/images/feedback/2.jpg"
-                            alt="Feedback 2"
-                            class="w-full max-h-[500px] object-contain h-auto rounded-lg feedback-image">
-                    </div>
-                    <div class="feedback-item">
-                        <img src="https://phanhieuky.com/public/assets/frontend/trainer-hieu/assets/images/feedback/3.jpg"
-                            alt="Feedback 3"
-                            class="w-full max-h-[500px] object-contain h-auto rounded-lg feedback-image">
-                    </div>
-                    <div class="feedback-item">
-                        <img src="https://phanhieuky.com/public/assets/frontend/trainer-hieu/assets/images/feedback/4.jpg"
-                            alt="Feedback 4"
-                            class="w-full max-h-[500px] object-contain h-auto rounded-lg feedback-image">
-                    </div>
-                    <div class="feedback-item">
-                        <img src="https://phanhieuky.com/public/assets/frontend/trainer-hieu/assets/images/feedback/5.jpg"
-                            alt="Feedback 5"
-                            class="w-full max-h-[500px] object-contain h-auto rounded-lg feedback-image">
-                    </div>
-                    <div class="feedback-item">
-                        <img src="https://phanhieuky.com/public/assets/frontend/trainer-hieu/assets/images/feedback/6.jpg"
-                            alt="Feedback 6"
-                            class="w-full max-h-[500px] object-contain h-auto rounded-lg feedback-image">
-                    </div>
-                    <div class="feedback-item">
-                        <img src="https://phanhieuky.com/public/assets/frontend/trainer-hieu/assets/images/feedback/7.jpg"
-                            alt="Feedback 7"
-                            class="w-full max-h-[500px] object-contain h-auto rounded-lg feedback-image">
-                    </div>
-                    <div class="feedback-item">
-                        <img src="https://phanhieuky.com/public/assets/frontend/trainer-hieu/assets/images/feedback/8.jpg"
-                            alt="Feedback 8"
-                            class="w-full max-h-[500px] object-contain h-auto rounded-lg feedback-image">
-                    </div>
-                    <div class="feedback-item">
-                        <img src="https://phanhieuky.com/public/assets/frontend/trainer-hieu/assets/images/feedback/9.jpg"
-                            alt="Feedback 9"
-                            class="w-full max-h-[500px] object-contain h-auto rounded-lg feedback-image">
-                    </div>
-                    <div class="feedback-item">
-                        <img src="https://phanhieuky.com/public/assets/frontend/trainer-hieu/assets/images/feedback/10.jpg"
-                            alt="Feedback 10"
-                            class="w-full max-h-[500px] object-contain h-auto rounded-lg feedback-image">
-                    </div>
-                    <div class="feedback-item">
-                        <img src="https://phanhieuky.com/public/assets/frontend/trainer-hieu/assets/images/feedback/11.jpg"
-                            alt="Feedback 11"
-                            class="w-full max-h-[500px] object-contain h-auto rounded-lg feedback-image">
-                    </div>
-                    <div class="feedback-item">
-                        <img src="https://phanhieuky.com/public/assets/frontend/trainer-hieu/assets/images/feedback/12.jpg"
-                            alt="Feedback 12"
-                            class="w-full max-h-[500px] object-contain h-auto rounded-lg feedback-image">
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 <?php
 get_footer();

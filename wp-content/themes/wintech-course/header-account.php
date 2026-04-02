@@ -4,7 +4,7 @@
 <head>
     <meta charset="<?php bloginfo('charset') ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://phanhieuky.com/public/uploads/favicon/favicon-1744713456.png">
+    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() ?>/assets/images/favicon-1744713456.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <?php wp_head(); ?>
@@ -148,7 +148,7 @@
                         </button>
                     <?php } else { ?>
                         <div class="w-[135px] h-[35px] text-sm font-normal">
-                            <a id="open-auth-modal" class="animate-pulse-small flex items-center justify-center w-full h-full bg-gradient-to-r from-[#f3de58] to-[#fda803] text-black rounded hover:from-[#faf4b0] hover:to-[#faf4b0] transition-colors cursor-pointer">
+                            <a id="open-auth-modal" href="<?php echo home_url('/login'); ?>" class="animate-pulse-small flex items-center justify-center w-full h-full bg-gradient-to-r from-[#f3de58] to-[#fda803] text-black rounded hover:from-[#faf4b0] hover:to-[#faf4b0] transition-colors cursor-pointer">
                                 ĐĂNG NHẬP
                             </a>
                         </div>
