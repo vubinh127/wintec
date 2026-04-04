@@ -61,6 +61,16 @@ body {
     font-family: "Lexend", sans-serif;
 }
 
+.logo-brand {
+    width: auto;
+    height: 40px;
+}
+
+.logo-brand img {
+    width: 100%;
+    height: 100%;
+}
+
 .gradient-text {
     background-image: linear-gradient(90deg,
             rgb(243, 223, 88),
@@ -1800,6 +1810,36 @@ ul.list li::before {
 
 .auth-section .alert-dismissible .btn-close {
     right: -8px;
+}
+
+
+.breadcrumb-single-page {
+    height: 350px;
+    background: linear-gradient(90deg, #f68034 26%, #f67f33 93%);
+    position: relative;
+    z-index: 0;
+}
+
+.breadcrumb-single-page::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.35) 70%);
+    z-index: -1;
+}
+
+.breadcrumb-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: #111;
+    line-height: 1.35;
+    max-width: 750px;
+    margin-bottom: 0.5rem;
+}
+
+.single-content-section {
+    margin-top: -250px;
+    position: relative;
 }
 
 .single-news-content h2,

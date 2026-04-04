@@ -16,19 +16,8 @@
         <div class="container mx-auto max-w-6xl !px-6 xl:!px-0">
             <div class="flex items-center justify-between h-[75px]">
 
-                <a href="<?php echo home_url() ?>" class="flex items-center gap-2 no-underline">
-                    <svg width="22" height="28" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13 0L0 16H9L8 28L22 12H13L13 0Z" fill="url(#acc-logo-grad)" />
-                        <defs>
-                            <linearGradient id="acc-logo-grad" x1="0" y1="0" x2="22" y2="28" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#f3de58" />
-                                <stop offset="100%" stop-color="#fda803" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                    <span style="font-family:'Lexend',sans-serif;" class="font-bold text-[15px] tracking-widest text-gray-900 uppercase">
-                        PHAN HIEU KY
-                    </span>
+                <a href="<?php echo home_url() ?>" class="flex items-center gap-2 no-underline logo-brand">
+                    <img src="<?php echo get_stylesheet_directory_uri() ?> /assets/images/dark-logo.png" alt="<?php bloginfo('name'); ?>">
                 </a>
 
                 <div class="flex items-center gap-2">
